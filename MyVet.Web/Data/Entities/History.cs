@@ -10,21 +10,25 @@ namespace MyVet.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        [MaxLength(50, ErrorMessage = "The {0} field can't have more than {1} characters.")]
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
         [Display(Name = "Service Type")]
+        [MaxLength(50, ErrorMessage = "The {0} field can't have more than {1} characters.")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]        
         public string Description { get; set; }
 
+        [Display(Name = "Date")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [Display(Name = "Date")]
         public DateTime Date { get; set; }
 
         public string Remarks { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]        
         public DateTime DateLocal => Date.ToLocalTime();
+
+        public ServiceType ServiceType { get; set; }
+
+        public Pet Pet { get; set; }
     }
 }

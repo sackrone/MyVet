@@ -10,10 +10,10 @@ namespace MyVet.Web.Data.Entities
     {
         public int Id { get; set; }
 
+        [Display(Name = "Date")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd H:mm tt", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [Display(Name = "Date")]
         public DateTime Date { get; set; }
 
         public string Remarks { get; set; }
@@ -24,5 +24,9 @@ namespace MyVet.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd H:mm tt}")]
         [Display(Name = "Date")]
         public DateTime DateLocal => Date.ToLocalTime();
+
+        public Owner Owner { get; set; }
+
+        public Pet Pet { get; set; }
     }
 }

@@ -41,5 +41,9 @@ namespace MyVet.Web.Data.Entities
 
         [Display(Name = "Owner")]
         public string FullNameWhitDocument => $"{FirstName} {LastName} - {Document}";
+
+        public ICollection<Pet> Pets { get; set; }
+
+        public ICollection<Agenda> Agendas { get; set; }
     }
 }
